@@ -1,6 +1,6 @@
 package cx.leo.crates.crate;
 
-import cx.leo.crates.crate.reward.Reward;
+import cx.leo.crates.crate.reward.IReward;
 import org.bukkit.Location;
 
 import java.util.List;
@@ -13,6 +13,6 @@ public interface ICrate {
 
     void addLocation(Location location);
 
-    List<Reward> getRewards();
+    List<IReward> getRewards();
 
 }
