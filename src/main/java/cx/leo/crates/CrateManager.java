@@ -1,29 +1,29 @@
 package cx.leo.crates;
 
 import cx.leo.crates.crate.ICrate;
+import org.bukkit.Location;
 import org.bukkit.block.Block;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class CrateManager {
 
     private final SimplyCrates plugin;
-    private final List<ICrate> crates = new ArrayList<>();
+    private final Map<Location, ICrate> crates = new HashMap<>();
 
     public CrateManager(SimplyCrates plugin) {
         this.plugin = plugin;
     }
 
-    public List<ICrate> getCrates() {
-        return crates;
+    public Collection<ICrate> getCrates() {
+        return crates.values();
     }
 
     public boolean isCrateBlock(Block block) {
-        return false;
+        return getCrateFromBlock(block) != null;
     }
 
     public ICrate getCrateFromBlock(Block block) {
-        return null;
+        return crates.get(block.getLocation());
     }
 }
